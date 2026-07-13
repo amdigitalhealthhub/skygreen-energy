@@ -1,0 +1,1319 @@
+/* Core Variables for a Premium Dark/Light Tech Theme */
+:root {
+    --bg-color: #0B0F19; 
+    --text-color: #F3F4F6;
+    --accent-color: #10B981; 
+    --accent-hover: #059669;
+    --card-bg: #111827;
+    --font-main: 'Plus Jakarta Sans', sans-serif;
+}
+
+[data-theme="light"] {
+    --bg-color: #FAFAFA;
+    --text-color: #111827;
+    --card-bg: #FFFFFF;
+    --accent-color: #059669;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Fixed typo from box-box-sizing */
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    transition: background 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
+}
+
+/* Navbar Layout */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 8%;
+    background-color: rgba(11, 15, 25, 0.85); /* Gives a premium transparent background blur */
+    backdrop-filter: blur(12px); /* Blurs content rolling underneath */
+    -webkit-backdrop-filter: blur(12px);
+    position: fixed; /* Changes from absolute to lock it dynamically */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensures it stays stacked on top of all other elements */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* Light Theme Navbar Background Adjustment */
+[data-theme="light"] .navbar {
+    background-color: rgba(250, 250, 250, 0.85);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.logo span { color: var(--accent-color); }
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin-left: 2rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover, .nav-links a.active { color: var(--accent-color); }
+
+.btn-nav {
+    background-color: var(--accent-color);
+    color: #FFF !important;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.btn-nav:hover { background-color: var(--accent-hover); }
+
+/* Hero Section */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+    align-items: center;
+    padding: 0 8%;
+    gap: 4rem;
+    padding-top: 120px; /* Increased from 80px to safely push content past the fixed header */
+}
+
+
+.badge {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--accent-color);
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+
+.hero-content h1 {
+    font-size: 3.8rem;
+    line-height: 1.15;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    letter-spacing: -1.5px;
+}
+
+.hero-content p {
+    font-size: 1.15rem;
+    opacity: 0.8;
+    margin-bottom: 2.5rem;
+    max-width: 580px;
+}
+
+.hero-actions { display: flex; gap: 1.5rem; }
+
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: #FFF;
+    text-decoration: none;
+    padding: 0.9rem 2.2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.btn-primary:hover { background-color: var(--accent-hover); }
+
+.btn-secondary {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.9rem 1rem;
+    font-weight: 600;
+    transition: transform 0.2s;
+}
+
+.btn-secondary:hover { transform: translateX(5px); }
+
+.hero-visual { display: flex; justify-content: center; align-items: center; }
+
+.energy-core {
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(circle, rgba(16,185,129,0.2) 0%, rgba(59,130,246,0.05) 50%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(10px);
+    animation: pulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.9); opacity: 0.4; }
+    100% { transform: scale(1.1); opacity: 0.7; }
+}
+
+.theme-btn {
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-left: 1.5rem;
+}
+
+/* Section Header Utilities */
+.section-header {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 4rem auto;
+}
+
+.sub-title {
+    color: var(--accent-color);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.section-header h2 {
+    font-size: 2.6rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    letter-spacing: -0.5px;
+}
+
+.section-header p { opacity: 0.7; }
+
+/* Main Welcome Section Layout */
+.welcome-section {
+    padding: 6rem 8%;
+    background-color: var(--bg-color);
+}
+
+.welcome-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.welcome-text-block h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: -0.5px;
+}
+
+.welcome-text-block p {
+    opacity: 0.75;
+    font-size: 1.05rem;
+}
+
+/* Core Pillars Card Matrix Grid */
+.core-pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+.pillar-card {
+    background-color: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    padding: 2rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+[data-theme="light"] .pillar-card {
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.pillar-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+}
+
+.pillar-icon {
+    font-size: 1.8rem;
+    line-height: 1;
+}
+
+.pillar-card h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.pillar-card p {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* Metrics Section */
+.metrics-section { padding: 6rem 8%; background-color: var(--bg-color); border-top: 1px solid rgba(255,255,255,0.02); }
+.metrics-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2.5rem; }
+.metric-card {
+    background-color: var(--card-bg);
+    padding: 3rem 2rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    text-align: center;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s;
+}
+[data-theme="light"] .metric-card { border: 1px solid rgba(0, 0, 0, 0.05); }
+.metric-card:hover { transform: translateY(-8px); border-color: var(--accent-color); }
+.metric-number { font-size: 3.2rem; font-weight: 800; color: var(--accent-color); margin-bottom: 0.75rem; letter-spacing: -1px; }
+.metric-label { font-size: 0.95rem; opacity: 0.75; font-weight: 500; line-height: 1.4; }
+
+/* Services Section */
+.services-section { padding: 6rem 8%; background: var(--bg-color); }
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; }
+.service-card { background: var(--card-bg); padding: 3.5rem 2.5rem; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.03); transition: all 0.3s ease; }
+.service-card:hover { transform: translateY(-10px); border-color: var(--accent-color); }
+.card-icon { font-size: 2.5rem; margin-bottom: 1.5rem; }
+.service-card h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; }
+.service-card p { opacity: 0.75; font-size: 0.95rem; margin-bottom: 1.5rem; }
+.card-link { color: var(--accent-color); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+.card-link:hover { text-decoration: underline; }
+
+/* Technical Process Timeline Styles */
+.process-section { padding: 6rem 8%; background-color: var(--bg-color); }
+.timeline-container { max-width: 800px; margin: 0 auto; position: relative; padding-left: 2rem; border-left: 2px solid rgba(16, 185, 129, 0.15); }
+.timeline-node { position: relative; margin-bottom: 4rem; }
+.timeline-node:last-child { margin-bottom: 0; }
+.timeline-node::before { content: ''; position: absolute; left: calc(-2rem - 6px); top: 6px; width: 10px; height: 10px; background-color: var(--bg-color); border: 2px solid var(--accent-color); border-radius: 50%; z-index: 5; }
+.node-meta { font-size: 0.8rem; font-weight: 700; color: var(--accent-color); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; }
+.node-content h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; }
+.node-content p { opacity: 0.75; font-size: 0.95rem; }
+
+/* New Content Block: Hardware Matrix Standards Table */
+.hardware-specs-section {
+    padding: 6rem 8%;
+    background-color: var(--bg-color);
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background-color: var(--card-bg);
+}
+
+[data-theme="light"] .table-responsive {
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.specs-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.95rem;
+}
+
+.specs-table th {
+    background-color: rgba(255, 255, 255, 0.02);
+    color: var(--text-color);
+    font-weight: 700;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="light"] .specs-table th {
+    background-color: rgba(0, 0, 0, 0.02);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.specs-table td {
+    padding: 1.5rem;
+    color: var(--text-color);
+    opacity: 0.85;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    vertical-align: top;
+}
+
+[data-theme="light"] .specs-table td {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.specs-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.specs-table td strong {
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+/* New Content Block: Strategic Support Arenas Grid */
+.strategic-focus-section {
+    padding: 6rem 8%;
+    background-color: var(--bg-color);
+    border-top: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.focus-matrix-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+}
+
+.focus-matrix-card {
+    background-color: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    padding: 2.5rem;
+    border-radius: 14px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+[data-theme="light"] .focus-matrix-card {
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.focus-matrix-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+}
+
+.focus-number {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.focus-matrix-card h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.focus-matrix-card p {
+    font-size: 0.95rem;
+    opacity: 0.75;
+    line-height: 1.5;
+}
+
+/* Portfolio Section */
+.portfolio-section { padding: 6rem 8%; background: var(--bg-color); border-top: 1px solid rgba(255, 255, 255, 0.03); }
+.filter-wrapper { display: flex; justify-content: center; gap: 1rem; margin-bottom: 3rem; }
+.filter-btn { background: transparent; border: 1px solid rgba(255, 255, 255, 0.1); color: var(--text-color); padding: 0.6rem 1.6rem; border-radius: 30px; cursor: pointer; font-weight: 500; transition: all 0.2s; }
+[data-theme="light"] .filter-btn { border: 1px solid rgba(0, 0, 0, 0.1); }
+.filter-btn.active, .filter-btn:hover { background: var(--accent-color); color: #FFF !important; border-color: var(--accent-color); }
+.portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
+.portfolio-item { background: var(--card-bg); border-radius: 14px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.03); transition: opacity 0.4s ease, transform 0.4s ease; }
+.project-image-placeholder { height: 240px; position: relative; padding: 1.5rem; }
+.commercial-img { background: linear-gradient(135deg, #0f172a, #1e1b4b); }
+.storage-img { background: linear-gradient(135deg, #022c22, #064e3b); }
+.agro-img { background: linear-gradient(135deg, #14532d, #0f172a); }
+.proj-badge { background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(4px); color: var(--accent-color); padding: 0.3rem 0.8rem; border-radius: 6px; font-size: 0.75rem; font-weight: 600; position: absolute; bottom: 1.5rem; left: 1.5rem; }
+.project-details { padding: 1.5rem; }
+.project-details h4 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; }
+.project-details p { opacity: 0.7; font-size: 0.9rem; }
+
+/* Corporate Profile & What We Do Section Layout */
+.about-corporate-section {
+    padding: 8rem 8%;
+    background-color: var(--bg-color);
+    border-top: 1px solid rgba(255, 255, 255, 0.02);
+    transition: background 0.3s ease;
+}
+
+.about-grid-container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 5rem;
+    align-items: start;
+}
+
+.premium-lead {
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.2px;
+}
+
+.body-desc {
+    font-size: 1.05rem;
+    opacity: 0.8;
+    color: var(--text-color);
+    margin-bottom: 3.5rem;
+}
+
+/* Mission & Vision Cards */
+.mission-vision-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.mv-card {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+[data-theme="light"] .mv-card {
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.mv-card h4 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 0.75rem;
+}
+
+.mv-card p {
+    font-size: 0.95rem;
+    opacity: 0.75;
+    line-height: 1.5;
+}
+
+/* What We Do Column Sticky Panel */
+.what-we-do-block {
+    position: relative;
+}
+
+.wwd-sticky-card {
+    background-color: var(--card-bg);
+    padding: 3.5rem 2.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="light"] .wwd-sticky-card {
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.02);
+}
+
+.wwd-sticky-card h3 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    letter-spacing: -0.5px;
+}
+
+.wwd-intro {
+    font-size: 0.95rem;
+    opacity: 0.7;
+    margin-bottom: 2rem;
+}
+
+.wwd-list {
+    list-style: none;
+}
+
+.wwd-list li {
+    font-size: 0.95rem;
+    opacity: 0.85;
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.wwd-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--accent-color);
+    font-weight: 700;
+}
+
+.wwd-list li:last-child {
+    margin-bottom: 0;
+}
+
+/* New Content Block: Homepage CTA Institutional Alignment Portal Banner */
+.homepage-cta-portal {
+    padding: 6rem 8%;
+    background-color: var(--bg-color);
+}
+
+.portal-cta-card {
+    background: linear-gradient(135deg, var(--card-bg) 0%, #0D1424 100%);
+    border: 1px solid rgba(16, 185, 129, 0.15);
+    padding: 4.5rem 3.5rem;
+    border-radius: 24px;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] .portal-cta-card {
+    background: linear-gradient(135deg, #FFFFFF 0%, #F1F5F9 100%);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.02);
+}
+
+.portal-cta-card h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 1rem;
+}
+
+.portal-cta-card p {
+    font-size: 1.1rem;
+    opacity: 0.8;
+    max-width: 680px;
+    margin: 0 auto 2.5rem auto;
+    line-height: 1.6;
+}
+
+.portal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+/* Contact Form Section Styles */
+.contact-section {
+    padding: 6rem 8%;
+    background-color: var(--bg-color);
+    border-top: 1px solid rgba(255, 255, 255, 0.02);
+}
+.premium-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.premium-form input, .premium-form textarea {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background-color: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--text-color);
+    border-radius: 8px;
+    font-family: var(--font-main);
+    font-size: 1rem;
+}
+[data-theme="light"] .premium-form input, [data-theme="light"] .premium-form textarea {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.premium-form button {
+    cursor: pointer;
+    border: none;
+    align-self: flex-start;
+}
+
+/* Modal Popup Window Styles */
+.overlay-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(7, 10, 19, 0.8);
+    backdrop-filter: blur(8px);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.overlay-container.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.overlay-modal {
+    background-color: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 3.5rem;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 650px;
+    position: relative;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+[data-theme="light"] .overlay-modal {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.05);
+}
+
+.overlay-container.visible .overlay-modal {
+    transform: translateY(0);
+}
+
+.close-overlay {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    font-size: 2rem;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+.close-overlay:hover {
+    opacity: 1;
+}
+
+#overlay-content h3 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    letter-spacing: -0.5px;
+}
+
+#overlay-content p {
+    font-size: 1.05rem;
+    opacity: 0.8;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+#overlay-content ul {
+    padding-left: 1.5rem;
+}
+
+#overlay-content ul li {
+    font-size: 1rem;
+    opacity: 0.85;
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+}
+
+/* Premium Form Alignment & Grouping */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: left;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    opacity: 0.9;
+    color: var(--text-color);
+}
+
+/* Formspree Status Alerts Container Box */
+.form-alert {
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    text-align: left;
+    line-height: 1.5;
+}
+
+.status-success {
+    background-color: rgba(16, 185, 129, 0.1);
+    border: 1px solid var(--accent-color);
+}
+
+.status-success h3 {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    margin-bottom: 0.25rem;
+}
+
+.status-success p {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.status-error {
+    background-color: rgba(239, 68, 68, 0.1);
+    border: 1px solid #EF4444;
+    color: #FCA5A5;
+    font-size: 0.95rem;
+}
+
+/* Field Level Dynamic Error Typography */
+.field-error-msg {
+    color: #FCA5A5;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+/* Accessibility Highlight on Validation Failure */
+[aria-invalid="true"] {
+    border-color: #EF4444 !important;
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
+}
+
+/* Submit Disabled State Utility */
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: var(--accent-hover);
+}
+
+/* Page Architecture Utilities */
+.page-container {
+    padding: 10rem 8% 6rem 8%;
+    background-color: var(--bg-color);
+    min-height: 100vh;
+}
+
+.page-hero {
+    max-width: 800px;
+    margin-bottom: 5rem;
+}
+
+.page-hero h1 {
+    font-size: 3.8rem;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+    margin-bottom: 1.5rem;
+}
+
+.lead-text {
+    font-size: 1.25rem;
+    opacity: 0.8;
+    line-height: 1.6;
+}
+
+/* Detailed Solutions & Case Studies Layouts */
+.detailed-solutions-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.detailed-solution-block {
+    background-color: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    padding: 4rem;
+    border-radius: 20px;
+}
+
+.solution-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.tech-tag {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: var(--accent-color);
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.detailed-solution-block ul {
+    margin-top: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.detailed-solution-block ul li {
+    margin-bottom: 0.75rem;
+    opacity: 0.85;
+}
+
+/* Case Studies Panels */
+.case-studies-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.case-study-card {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.cs-image-box {
+    height: 100%;
+    min-height: 250px;
+    position: relative;
+}
+
+.commercial-gradient { background: linear-gradient(135deg, #0f172a, #1e1b4b); }
+.agro-gradient { background: linear-gradient(135deg, #14532d, #0f172a); }
+
+.cs-badge {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    background-color: rgba(0,0,0,0.6);
+    color: var(--accent-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.cs-content { padding: 3rem; }
+.cs-content h4 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; }
+.cs-desc { opacity: 0.8; margin-bottom: 2rem; font-size: 1rem; }
+.cs-specs { display: flex; gap: 2rem; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1.5rem; }
+
+/* Premium Corporate Footer Layout */
+.corporate-footer {
+    background-color: #070A12;
+    padding: 6rem 8% 2rem 8%;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    color: var(--text-color);
+}
+
+.footer-top-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 4rem;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Brand Grid Details styling */
+.footer-brand-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.brand-mission-statement {
+    font-size: 0.95rem;
+    opacity: 0.7;
+    line-height: 1.6;
+    max-width: 320px;
+}
+
+.social-links-row {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.social-links-row a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    opacity: 0.6;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.social-links-row a:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+/* Link Matrices Layout blocks */
+.footer-links-column h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 1.75rem;
+    color: var(--text-color);
+}
+
+.footer-links-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links-column ul li {
+    margin-bottom: 0.85rem;
+}
+
+.footer-links-column ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.95rem;
+    opacity: 0.65;
+    transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.footer-links-column ul li a:hover {
+    color: var(--accent-color);
+    opacity: 1;
+}
+
+/* Contact Specific Alignment Lists */
+.contact-details-list li {
+    font-size: 0.95rem;
+    margin-bottom: 1.25rem !important;
+    line-height: 1.5;
+}
+
+.contact-details-list strong {
+    display: block;
+    font-weight: 600;
+    opacity: 0.9;
+    margin-bottom: 0.25rem;
+}
+
+.contact-details-list a {
+    color: var(--accent-color) !important;
+    opacity: 1 !important;
+}
+
+/* Footer Bottom Strip Baseline Elements */
+.footer-bottom-baseline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    font-size: 0.85rem;
+    opacity: 0.5;
+}
+
+.baseline-policies {
+    display: flex;
+    gap: 2rem;
+}
+
+.baseline-policies a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.baseline-policies a:hover {
+    color: var(--accent-color);
+}
+
+/* Responsive Media Queries Configuration */
+@media (max-width: 1024px) {
+    .navbar { padding: 1.5rem 5%; }
+    .hero { padding: 0 5%; gap: 2rem; }
+    .welcome-section, .about-corporate-section, .process-section, .hardware-specs-section, .strategic-focus-section, .why-choose-us-section, .metrics-section, .portfolio-section, .homepage-cta-portal, .contact-section { padding: 6rem 5%; }
+    .about-grid-container { grid-template-columns: 1fr; gap: 3.5rem; }
+    .footer-top-grid { grid-template-columns: repeat(2, 1fr); gap: 3rem; }
+}
+
+@media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; text-align: center; padding-top: 140px; gap: 2rem; }
+    .hero-content h1 { font-size: 2.8rem; }
+    .hero-content p { margin: 0 auto 2.5rem auto; }
+    .hero-actions { justify-content: center; }
+    .welcome-grid-container { grid-template-columns: 1fr; gap: 2.5rem; }
+    .timeline-container { padding-left: 1.5rem; }
+    .timeline-node::before { left: calc(-1.5rem - 6px); }
+    .case-study-card { grid-template-columns: 1fr; }
+    .page-hero h1 { font-size: 2.8rem; }
+    .detailed-solution-block { padding: 2.5rem; }
+    .portal-cta-card { padding: 3rem 2rem; }
+    .portal-cta-card h2 { font-size: 1.8rem; }
+    .filter-wrapper { flex-wrap: wrap; }
+}
+
+@media (max-width: 600px) {
+    .navbar { flex-direction: column; gap: 1rem; padding: 1.5rem 0; position: relative; background-color: var(--bg-color); }
+    .nav-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+    .nav-links a { margin-left: 0; padding: 0 0.5rem; }
+    .theme-btn { margin-left: 0; margin-top: 0.5rem; }
+    .mission-vision-grid { grid-template-columns: 1fr; }
+    .footer-top-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .footer-bottom-baseline { flex-direction: column; gap: 1rem; text-align: center; }
+    .baseline-policies { justify-content: center; gap: 1.5rem; }
+}
+
+
+/* Why Choose Us Section Grid Layout */
+.why-choose-us-section {
+    padding: 6rem 8%;
+    background-color: var(--bg-color);
+}
+
+.value-row-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    margin-top: 3.5rem;
+}
+
+.value-box {
+    background-color: var(--card-bg);
+    padding: 2.5rem 2rem;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    text-align: left;
+}
+
+[data-theme="light"] .value-box {
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.value-box:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+}
+
+.value-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.value-box h5 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--text-color);
+}
+
+.value-box p {
+    font-size: 0.95rem;
+    opacity: 0.75;
+    line-height: 1.5;
+}
+
+/* Premium Two-Column Contact Page Layout */
+.contact-grid-layout {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 4rem;
+    margin-top: 4rem;
+    margin-bottom: 5rem;
+    align-items: start;
+}
+
+.partnership-info-block {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.info-card-segment {
+    background-color: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    padding: 3rem 2.5rem;
+    border-radius: 16px;
+}
+
+[data-theme="light"] .info-card-segment {
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.info-card-segment h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.5px;
+    color: var(--text-color);
+}
+
+/* Premium Tags/Badges Grid */
+.opp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    margin-top: 1rem;
+}
+
+.opp-tags span {
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 0.6rem 1.2rem;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+[data-theme="light"] .opp-tags span {
+    background-color: rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.opp-tags span:hover {
+    border-color: var(--accent-color);
+    background-color: rgba(16, 185, 129, 0.05);
+}
+
+/* Premium Styling for Right Column Intake Wrapper */
+.contact-form-wrapper {
+    background-color: var(--card-bg);
+    padding: 3.5rem 2.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="light"] .contact-form-wrapper {
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.02);
+}
+
+/* Responsive wrap breakpoint */
+@media (max-width: 900px) {
+    .contact-grid-layout {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+}
+
+
+/* Update Core Theme Variables to Support Dynamic Contrast Layers */
+:root {
+    --bg-color: #0B0F19; 
+    --text-color: #F3F4F6;
+    --accent-color: #10B981; 
+    --accent-hover: #059669;
+    --card-bg: #111827;
+    --font-main: 'Plus Jakarta Sans', sans-serif;
+    
+    /* New theme dynamic styling states */
+    --cta-overlay: linear-gradient(135deg, rgba(11, 15, 25, 0.94) 0%, rgba(17, 24, 39, 0.96) 100%);
+    --cta-border: rgba(16, 185, 129, 0.15);
+}
+
+[data-theme="light"] {
+    --bg-color: #FAFAFA;
+    --text-color: #111827;
+    --card-bg: #FFFFFF;
+    --accent-color: #059669;
+    
+    /* New light mode variables for legible layouts */
+    --cta-overlay: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(243, 244, 246, 0.95) 100%);
+    --cta-border: rgba(5, 150, 105, 0.2);
+}
+
+/* Ensure body paragraphs inherit the contrast variables cleanly */
+.portal-cta-card h2, .portal-cta-card p {
+    color: var(--text-color) !important;
+}
+
+/* Reset social link styles for standard display profiles */
+.social-links-row {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.social-links-row a img {
+    opacity: 0.75;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.social-links-row a img:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+
+/* Premium Dynamic Corporate Footer Styles */
+.corporate-footer {
+    background-color: #070A12; /* Default Dark Mode Background */
+    color: #F3F4F6 !important; /* Default Dark Mode Text */
+    padding: 6rem 8% 2rem 8%;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* Ensure all links and headers inside the footer remain white/readable in Dark Mode */
+.footer-links-column h4 {
+    color: #FFFFFF !important;
+}
+
+.footer-links-column ul li a,
+.brand-mission-statement,
+.footer-bottom-baseline p,
+.baseline-policies a {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.footer-links-column ul li a:hover,
+.baseline-policies a:hover {
+    color: var(--accent-color) !important;
+}
+
+/* --- Light Mode Footer Override Layout --- */
+[data-theme="light"] .corporate-footer {
+    background-color: #F1F5F9 !important; /* Smooth clean light grey background */
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Fix text and link colors for crisp contrast in Light Mode */
+[data-theme="light"] .footer-links-column h4 {
+    color: #111827 !important; /* Rich deep dark grey header text */
+}
+
+[data-theme="light"] .footer-links-column ul li a,
+[data-theme="light"] .brand-mission-statement,
+[data-theme="light"] .footer-bottom-baseline p,
+[data-theme="light"] .baseline-policies a,
+[data-theme="light"] .contact-details-list strong {
+    color: #4B5563 !important; /* High contrast legible body text */
+}
+
+/* Keep active hover states looking sharp in Light Mode */
+[data-theme="light"] .footer-links-column ul li a:hover,
+[data-theme="light"] .baseline-policies a:hover {
+    color: #059669 !important; /* SkyGreen premium accent green */
+}
+
+
+
+
+
+
+/* Custom Call-to-Action Translucency Override */
+.homepage-cta-portal .portal-cta-card, 
+.hsse-compliance .portal-cta-card {
+    background-image: linear-gradient(135deg, rgba(11, 15, 25, 0.45) 0%, rgba(17, 24, 39, 0.65) 100%), url('assets/partnership-bg.jpeg') !important;
+}
+
+[data-theme="light"] .homepage-cta-portal .portal-cta-card,
+[data-theme="light"] .hsse-compliance .portal-cta-card {
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(243, 244, 246, 0.7) 100%), url('assets/partnership-bg.jpeg') !important;
+}
+
+.portal-cta-card h2 {
+    color: #FFFFFF !important;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.85) !important;
+}
+
+.portal-cta-card p {
+    color: #F3F4F6 !important;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.85) !important;
+}
