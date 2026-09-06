@@ -1,0 +1,22 @@
+backend:
+  name: github
+  repo: amdigitalhealthhub/skygreen-energy
+  branch: main
+
+media_folder: "assets"
+public_folder: "assets"
+
+collections:
+  - name: "projects"
+    label: "Projects"
+    folder: "projects"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Project Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Cover Image", name: "image", widget: "image" }
+      - { label: "Location", name: "location", widget: "string" }
+      - { label: "System Capacity", name: "capacity", widget: "string" }
+      - { label: "Description", name: "body", widget: "markdown" }
+      
